@@ -10,7 +10,7 @@ public class Piece {
     @Getter(AccessLevel.PROTECTED)
     private Board board;
 
-    public Piece(Position position, Board board) {
+    public Piece(Board board) {
         this.board = board;
         this.position = null;
     }
