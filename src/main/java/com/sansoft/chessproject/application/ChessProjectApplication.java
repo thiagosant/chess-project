@@ -1,7 +1,6 @@
-package com.sansoft.chessproject;
+package com.sansoft.chessproject.application;
 
-import com.sansoft.chessproject.boardgame.Board;
-import com.sansoft.chessproject.boardgame.Position;
+import com.sansoft.chessproject.chess.ChessMatch;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -11,7 +10,9 @@ public class ChessProjectApplication {
     public static void main(String[] args) {
         SpringApplication.run(ChessProjectApplication.class, args);
 
-        Board board = new Board(8, 8);
+        ChessMatch chessMatch = new ChessMatch();
+
+        UI.printBoard(chessMatch.getPieces());
 
     }
 
