@@ -1,11 +1,13 @@
 package com.sansoft.chessproject.application;
 
+import com.sansoft.chessproject.chess.ChessException;
 import com.sansoft.chessproject.chess.ChessMatch;
 import com.sansoft.chessproject.chess.ChessPiece;
 import com.sansoft.chessproject.chess.ChessPosition;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 @SpringBootApplication
@@ -18,16 +20,27 @@ public class ChessProjectApplication {
         ChessMatch chessMatch = new ChessMatch();
 
         while (true){
-            UI.printBoard(chessMatch.getPieces());
-            System.out.println();
-            System.out.print("Source: ");
-            ChessPosition source = UI.readChessPosition(input);
+            try{
+                UI.clearScreen();
+                UI.printBoard(chessMatch.getPieces());
+                System.out.println();
+                System.out.print("Source: ");
+                ChessPosition source = UI.readChessPosition(input);
 
-            System.out.println();
-            System.out.print("Target: ");
-            ChessPosition target = UI.readChessPosition(input);
+                System.out.println();
+                System.out.print("Target: ");
+                ChessPosition target = UI.readChessPosition(input);
 
-            ChessPiece capturedPiece = chessMatch.performChessMove(source, target);
+                ChessPiece capturedPiece = chessMatch.performChessMove(source, target);
+            }
+            catch (ChessException e) {
+                System.out.println(e.getMessage());
+                input.nextLine();
+            }
+            catch (InputMismatchException e) {
+                System.out.println(e.getMessage());
+                input.nextLine();
+            }
         }
 
 
