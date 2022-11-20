@@ -4,7 +4,7 @@ import com.sansoft.chessproject.boardgame.Board;
 import com.sansoft.chessproject.boardgame.Piece;
 import lombok.Getter;
 
-public class ChessPiece extends Piece {
+public abstract class ChessPiece extends Piece {
 
     @Getter
     private Color color;
