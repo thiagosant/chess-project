@@ -3,10 +3,7 @@ package com.sansoft.chessproject.chess;
 import com.sansoft.chessproject.boardgame.Board;
 import com.sansoft.chessproject.boardgame.Piece;
 import com.sansoft.chessproject.boardgame.Position;
-import com.sansoft.chessproject.chess.pieces.Bishop;
-import com.sansoft.chessproject.chess.pieces.King;
-import com.sansoft.chessproject.chess.pieces.Pawn;
-import com.sansoft.chessproject.chess.pieces.Rook;
+import com.sansoft.chessproject.chess.pieces.*;
 import lombok.Getter;
 
 import java.util.ArrayList;
@@ -179,9 +176,11 @@ public class ChessMatch {
 
     private void initialSetup(){
         placeNewPiece('a', 1, new Rook(board, Color.WHITE));
+        placeNewPiece('b', 1, new Knight(board, Color.WHITE));
         placeNewPiece('c', 1, new Bishop(board, Color.WHITE));
         placeNewPiece('e', 1, new King(board, Color.WHITE));
         placeNewPiece('f', 1, new Bishop(board, Color.WHITE));
+        placeNewPiece('g', 1, new Knight(board, Color.WHITE));
         placeNewPiece('h', 1, new Rook(board, Color.WHITE));
         placeNewPiece('a', 2, new Pawn(board, Color.WHITE));
         placeNewPiece('b', 2, new Pawn(board, Color.WHITE));
@@ -193,9 +192,11 @@ public class ChessMatch {
         placeNewPiece('h', 2, new Pawn(board, Color.WHITE));
 
         placeNewPiece('a', 8, new Rook(board, Color.BLACK));
+        placeNewPiece('b', 8, new Knight(board, Color.BLACK));
         placeNewPiece('c', 8, new Bishop(board, Color.BLACK));
         placeNewPiece('e', 8, new King(board, Color.BLACK));
         placeNewPiece('f', 8, new Bishop(board, Color.BLACK));
+        placeNewPiece('g', 8, new Knight(board, Color.BLACK));
         placeNewPiece('h', 8, new Rook(board, Color.BLACK));
         placeNewPiece('a', 7, new Pawn(board, Color.BLACK));
         placeNewPiece('b', 7, new Pawn(board, Color.BLACK));
