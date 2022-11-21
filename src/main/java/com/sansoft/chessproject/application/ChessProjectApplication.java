@@ -22,7 +22,7 @@ public class ChessProjectApplication {
         ChessMatch chessMatch = new ChessMatch();
         List<ChessPiece> captured = new ArrayList<>();
 
-        while (true){
+        while (!chessMatch.isCheckMate()){
             try{
                 UI.clearScreen();
                 UI.printMatch(chessMatch, captured);
@@ -44,15 +44,13 @@ public class ChessProjectApplication {
                     captured.add(capturedPiece);
                 }
             }
-            catch (ChessException e) {
-                System.out.println(e.getMessage());
-                input.nextLine();
-            }
-            catch (InputMismatchException e) {
+            catch (ChessException | InputMismatchException e) {
                 System.out.println(e.getMessage());
                 input.nextLine();
             }
         }
+        UI.clearScreen();
+        UI.printMatch(chessMatch, captured);
 
 
     }
